@@ -20,8 +20,8 @@ public class CircuitBreakerLogConfig {
         CircuitBreaker cb = circuitBreakerRegistry.circuitBreaker("userService");
         cb.getEventPublisher()
             .onStateTransition(event -> {
-                System.out.println("CircuitBreaker '" + event.getCircuitBreakerName() + 
-                                   "' changed state from " + event.getStateTransition().getFromState() + 
+                System.out.println("CircuitBreaker '" + event.getCircuitBreakerName() +
+                                   "' changed state from " + event.getStateTransition().getFromState() +
                                    " to " + event.getStateTransition().getToState());
             });
     }
