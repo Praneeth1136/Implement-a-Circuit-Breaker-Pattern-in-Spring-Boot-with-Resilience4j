@@ -38,7 +38,7 @@ public class UserController {
     public Map<String, Object> getCircuitBreakerMetrics() {
         CircuitBreaker cb = circuitBreakerRegistry.circuitBreaker("userService");
         CircuitBreaker.Metrics metrics = cb.getMetrics();
-        
+
         Map<String, Object> metricsMap = new HashMap<>();
         metricsMap.put("failureRate", metrics.getFailureRate());
         metricsMap.put("numberOfBufferedCalls", metrics.getNumberOfBufferedCalls());
