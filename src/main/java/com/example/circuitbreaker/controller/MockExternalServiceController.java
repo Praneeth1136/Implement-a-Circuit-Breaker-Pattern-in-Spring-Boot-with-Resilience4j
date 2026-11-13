@@ -19,7 +19,7 @@ public class MockExternalServiceController {
     @GetMapping("/users/{id}")
     public ResponseEntity<UserDTO> getUser(@PathVariable String id) {
         int count = requestCount.incrementAndGet();
-        
+
         // Fail 80% of the time to quickly trip the circuit breaker during testing
         if (count % 5 != 0) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -27,7 +27,7 @@ public class MockExternalServiceController {
 
         return ResponseEntity.ok(new UserDTO(id, "Real User " + id, "user" + id + "@example.com"));
     }
-    
+
     @GetMapping("/reset")
     public ResponseEntity<String> resetCount() {
         requestCount.set(0);
