@@ -23,3 +23,7 @@ logs/
 # Operating System files
 .DS_Store
 Thumbs.db
+
+# GitGry Security Hygiene
+.env*
+node_modules/
